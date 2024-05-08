@@ -1,6 +1,9 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
@@ -133,6 +136,28 @@ h1, h2, h3, h4, h5, h6 {
   max-height: 40px;
 }
 
+@media (max-width: 768px) {
+  #header .logo {
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  #header .logo a {
+    color: #2d405f;
+    text-transform: uppercase;
+  }
+  
+  #header .logo img {
+    max-height: 40px;
+  }
+}
+
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -245,7 +270,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Get Startet Button */
+/* Get Started Button */
 .get-started-btn {
   margin-left: 25px;
   background: #e2e5fe;
@@ -268,8 +293,9 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
   .get-started-btn {
-    margin: 0 48px 0 0;
-    padding: 6px 18px;
+    margin: 0 35px 0 0;
+    padding: 6px 9px;
+    font-size: 8px
   }
 }
 
@@ -827,9 +853,6 @@ section {
 /*--------------------------------------------------------------
 # Frequently Asked Questions
 --------------------------------------------------------------*/
-.faq {
-  /* background: linear-gradient(42deg, #3B4EF8 0%, #7b27d8 100%); */
-}
 
 .faq .section-title h2, .faq .section-title p {
   color: #fff;
@@ -1161,4 +1184,50 @@ section {
 #footer .copyright img{
   height: 40px;
 }
+.button1{
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-radius: 12px;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
 
+.button2{
+  background-color: red; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-radius: 12px;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.button3 {
+  margin-left: 25px;
+  background: #e2e5fe;
+  color: #001aff;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px;
+  display: inline-block;
+  font-weight: 600;
+  font-family: "Krub", sans-serif;
+  letter-spacing: 0.5px;
+}
