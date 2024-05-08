@@ -34,16 +34,16 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="/">PhishDetector</a></h1>
+      <h1 class="logo mr-auto"><a href="{{ url_for('home') }}">PhishDetector</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="/" class="logo mr-auto"><img src="static/assets/img/newlogo.jpg" alt="" class="img-fluid"></a>
+      <a href="{{ url_for('home') }}" class="logo mr-auto"><img src="static/assets/img/newlogo.jpg" alt="" class="img-fluid"></a>
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a  onclick="scrolldiv()">About</a></li>
           <li class="active"><a href="{{ url_for('usecases') }}">Usecases</a></li>
-          <li class="drop-down"><a href="info.html">Help</a>
+          <li class="drop-down"><a href="">Help</a>
             <ul>
               <li class="drop-down"><a href="#">Report Phishing Cases</a>
                 <ul>
@@ -217,7 +217,7 @@
         <div class="copyright">
           <img src="static/assets/img/google.png" alt="">
           <a href="https://phishingquiz.withgoogle.com/" class="get-started-btn scrollto">Take a Phishing Test by GOOGLE</a>
-          <p style="padding-top: 8px; font-weight: 600;">Final Year Project &copy; 2021. All Rights Reserved</p>
+          <p style="padding-top: 8px; font-weight: 600;"><a style="text-decorations:none; color:inherit;" href="https://github.com/asrith-reddy" >Final Year Project &copy; 2024.All Rights Reserved</a></p><a href="https://github.com/asrith-reddy/Phishing-detector" ><button style="font-size:15px" class="button3">Source Code <i class="fa fa-github"></i></button></a>
         </div>
       </div>
     </div>
@@ -229,12 +229,16 @@
   <!-- Vendor JS Files -->
   <script src="static/assets/vendor/jquery/jquery.min.js"></script>
   <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="static/assets/vendor/php-email-form/validate.js"></script>
   <script src="static/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="static/assets/vendor/venobox/venobox.min.js"></script>
   <script src="static/assets/vendor/aos/aos.js"></script>
+  <script>
+    function scrolldiv() {
+        var elem = document.getElementById("about");
+        elem.scrollIntoView();
+    }
+  </script>
 
   <!-- Template Main JS File -->
   <script src="static/assets/js/main.js"></script>
