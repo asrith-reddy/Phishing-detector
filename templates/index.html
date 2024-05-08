@@ -20,6 +20,7 @@
   <link href="static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
   <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!-- Template Main CSS File -->
   <link href="static/style.css" rel="stylesheet">
@@ -31,16 +32,16 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
       
-      <h1 class="logo mr-auto"><a href="">PhishDetector</a></h1>
+      <h1 class="logo mr-auto"><a href="{{ url_for('home') }}">PhishDetector</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="" class="logo mr-auto"><img src="static/assets/img/newlogo.jpg" alt="" class="img-fluid"></a>
+      <a href="{{ url_for('home') }}" class="logo mr-auto"><img src="static/assets/img/newlogo.jpg" alt="" class="img-fluid"></a>
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="">Home</a></li>
-          <li><a href="#about">About</a></li>
+          <li class="active"><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a onclick="scrolldiv()">About</a></li>
           <li><a href="{{ url_for('usecases') }}" target="_blank" rel="no-openner no-referrer">Usecases</a></li>
-          <li class="drop-down"><a href="">Help</a>
+          <li class="drop-down"><a href="{{ url_for('home') }}">Help</a>
             <ul>
               <li class="drop-down"><a href="#">Report Phishing Cases</a>
                 <ul>
@@ -75,7 +76,7 @@
             <form action="/result" method="POST" role="form" class="form">
         <div class="row no-gutters">
           <div class="col-md-6 form-group pr-md-1">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Enter a URL link in format http or https" required>
+              <input type="url" name="name" class="form-control" id="name" placeholder="Enter a URL link in format http or https" required>
           </div>
         </div>
         <div class="text-center"><button type="submit">Scan URL</button></div>
@@ -83,7 +84,11 @@
           {% if name %}
           <b><p>{{name[0]}}</p></b>
           <h2 style="color:blue;">Website is {{name[1]}} to use</h2><br>
-          <button onclick="window.open('{{name[0]}}')" target="_blank" >{{name[2]}}</button><br>
+            {% if name[3] %}
+            <button class="button1" onclick="window.open('{{name[0]}}')" target="_blank" >{{name[2]}}</button><br>
+            {% else %}
+            <button class="button2" onclick="window.open('{{name[0]}}')" target="_blank" >{{name[2]}}</button><br>
+            {% endif %}
           {% endif %}
       </p>
       </form> 
@@ -214,7 +219,7 @@
                     </p>                
                     
                     <h3>About Us</h3>
-                    <p>This Project is done by Final Year Students of Computer Science and Engineering at G Pulla Reddy Engineering College<br><br><h5 style="color:white;"><b>K Asrith<br>B Hemanth<br>B Lingesh</b></h5></p>
+                    <p>This Project is done by Final Year Students of Computer Science and Engineering at G Pulla Reddy Engineering College<br><br><h5 style="color:white;"><b>K Asrith<br>B Hemanth<br>B Lingesh<br><br><h6>Guided By</h6><h5>Sri M Anand</h5></b></p></p>
               </div>
       
             </div>
@@ -233,10 +238,11 @@
           <img src="static/assets/img/google.png" alt="">
           <a href="https://phishingquiz.withgoogle.com/" target="_blank" class="get-started-btn scrollto">Take a Phishing Test by GOOGLE</a> <br>
           <hr/> 
-		  <p style="padding-top: 8px; font-weight: 600;">Final Year Project &copy; 2021.All Rights Reserved</p>
+		  <p style="padding-top: 8px; font-weight: 600;"><a style="text-decorations:none; color:inherit;" href="https://github.com/asrith-reddy" >Final Year Project &copy; 2024.All Rights Reserved</a></p><a href="https://github.com/asrith-reddy/Phishing-detector" ><button style="font-size:15px" class="button3">Source Code <i class="fa fa-github"></i></button></a>
         </div>
       </div>
     </div>
+
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
@@ -245,12 +251,16 @@
   <!-- Vendor JS Files -->
   <script src="static/assets/vendor/jquery/jquery.min.js"></script>
   <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="static/assets/vendor/php-email-form/validate.js"></script>
   <script src="static/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="static/assets/vendor/venobox/venobox.min.js"></script>
   <script src="static/assets/vendor/aos/aos.js"></script>
+  <script>
+    function scrolldiv() {
+        var elem = document.getElementById("about");
+        elem.scrollIntoView();
+    }
+  </script>
 
   <!-- Template Main JS File -->
   <script src="static/assets/js/main.js"></script>
