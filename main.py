@@ -38,14 +38,6 @@ def predict():
     return render_template("index.html", name=name)
 @app.route('/usecases', methods=['GET', 'POST'])
 def usecases():
-    #if request.method == 'POST':
-        # do stuff when the form is submitted
-
-        # redirect to end the POST handling
-        # the redirect can be to the same route or somewhere else
-        #return redirect(url_for('index'))
-
-    # show the form, it wasn't submitted
     return render_template('usecases.html')
 if __name__ == "__main__":
     app.run(debug=True)
