@@ -1,11 +1,20 @@
 import requests
 import re
+import csv
 def convertion(url,prediction):
     name = []
-    if(shortlink(url)==-1 or url_ok(url)==-1):
+    
+    found_url = find_url_in_csv('Datafiles/phishurls.csv', url)
+    '''if "https://" in url:
+        urlz = url.replace("https://","")
+    if "http://" in url:
+        urlz = url.replace("http://","")
+    url_found = find_url_in_csv('Datafiles/legitimateurls.csv', urlz)'''
+    
+    if(shortlink(url)==-1 or found_url):
         return [url,"Not Safe","Still want to Continue"]
     elif(prediction==1):
-        return [url,"Safe","Continue"]
+        return [url,"Safe","Continue","1"]
     else:
         return [url,"Not Safe","Still want to Continue"]
 def shortlink(url):
@@ -20,12 +29,11 @@ def shortlink(url):
         if match:
             return -1
         return 1
-def url_ok(url):
-    try:
-        response = requests.head(url)
-        if response.status_code == 200:
-            return 1
-        else:
-            return -1
-    except requests.ConnectionError as e:
-        return -1
+def find_url_in_csv(csv_file, target_url):
+    with open(csv_file, 'r', newline='', encoding='utf-8') as file:
+        csv_reader = csv.reader(file)
+        for row in csv_reader:
+            url = row [0].strip() 
+            if url == target_url:
+                return url
+    return None
