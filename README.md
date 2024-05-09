@@ -1,6 +1,7 @@
 # Phishing URL Detection 
 
 ![image2](https://github.com/asrith-reddy/Phishing-detector/assets/76733972/da226de9-dfe6-4f0c-a8bc-b92d4cc08e53)
+
 ![image1](https://github.com/asrith-reddy/Phishing-detector/assets/76733972/fe706a06-84fe-493f-abb8-34d3fbc594b5)
 
 ## Objective
